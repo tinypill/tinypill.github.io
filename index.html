@@ -1,4 +1,17 @@
-hello
+<script>
+function fileSelect(evt) {
+    var files = evt.target.files;
+ 
+    var result = '';
+    var file;
+    for (var i = 0; file = files[i]; i++) {
+        result += '<li>' + file.name + ' ' + file.size + ' bytes</li>';
+    }
+    document.getElementById('filesInfo').innerHTML = '<ul>' + result + '</ul>';
+}
+ 
+document.getElementById('filesToUpload').addEventListener('change', fileSelect, false);
+</script>
 
 <form enctype="multipart/form-data" method="post" action="upload.php">
     <div class="row">
